@@ -17,20 +17,20 @@ public class Main {
         portfolio.getWallet().setBalance(1000000); // Initial wallet balance: $1,000,000
 
         // Perform buy and sell transactions
-        performTransaction(portfolio, TransactionType.BUY, bitcoin, 0.5, bitcoin.getPrice());  // Buy 0.5 BTC
+        performTransaction(portfolio, Transaction.TransactionType.BUY, bitcoin, 0.5, bitcoin.getPrice());  // Buy 0.5 BTC
 
-        performTransaction(portfolio, TransactionType.SELL, bitcoin, 0.2, bitcoin.getPrice()); // Sell 0.2 BTC
+        performTransaction(portfolio, Transaction.TransactionType.SELL, bitcoin, 0.2, bitcoin.getPrice()); // Sell 0.2 BTC
 
         // Buy more Ethereum
-        performTransaction(portfolio, TransactionType.BUY, ethereum, 5, ethereum.getPrice());  // Buy 5 ETH
+        performTransaction(portfolio, Transaction.TransactionType.BUY, ethereum, 5, ethereum.getPrice());  // Buy 5 ETH
 
         // Sell some Ethereum
-        performTransaction(portfolio, TransactionType.SELL, ethereum, 2, ethereum.getPrice()); // Sell 2 ETH
+        performTransaction(portfolio, Transaction.TransactionType.SELL, ethereum, 2, ethereum.getPrice()); // Sell 2 ETH
     }
 
-    private static void performTransaction(Portfolio portfolio, TransactionType type,
+    private static void performTransaction(Portfolio portfolio, Transaction.TransactionType type,
                                            Cryptocurrency currency, double quantity, double price) {
-        if (type == TransactionType.BUY)
+        if (type == Transaction.TransactionType.BUY)
         {
             portfolio.buyCryptocurrency(currency, quantity, price);
         }

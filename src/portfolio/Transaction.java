@@ -1,12 +1,6 @@
 // File: Transaction.java
 package portfolio; // portfolio/utils
 
-
-// Enumeration for representing transaction type
-enum TransactionType {
-    BUY, SELL
-}
-
 // Class for representing cryptocurrency buy or sell transaction
 public class Transaction {
     private TransactionType type;       // Transaction type
@@ -14,6 +8,9 @@ public class Transaction {
     private double quantity;            // Cryptocurrency quantity
     private double price;               // Cryptocurrency price at time of transaction
 
+    public enum TransactionType {
+        BUY, SELL
+    }
     // Class constructor
     public Transaction(TransactionType type, Cryptocurrency currency, double quantity, double price) {
         this.type = type;

@@ -23,7 +23,7 @@ public class Portfolio {
             // Decrease wallet balance
             wallet.setBalance(wallet.getBalance() - totalCost);
             // Add transaction to list
-            wallet.addTransaction(new Transaction(TransactionType.BUY, currency, quantity, price));
+            wallet.addTransaction(new Transaction(Transaction.TransactionType.BUY, currency, quantity, price));
         } else {
             System.out.println("Insufficient funds!");
         }
@@ -39,7 +39,7 @@ public class Portfolio {
             // Increase wallet balance
             wallet.setBalance(wallet.getBalance() + totalRevenue);
             // Add transaction to list
-            wallet.addTransaction(new Transaction(TransactionType.SELL, currency, quantity, price));
+            wallet.addTransaction(new Transaction(Transaction.TransactionType.SELL, currency, quantity, price));
         } else {
             System.out.println("Insufficient quantity of " + currency.getName() + " in wallet!");
         }
@@ -51,9 +51,9 @@ public class Portfolio {
         // Iterate through transactions list and sum cryptocurrency quantity
         for (Transaction transaction : wallet.getTransactions()) {
             if (transaction.getCurrency().equals(currency)) {
-                if (transaction.getType() == TransactionType.BUY) {
+                if (transaction.getType() == Transaction.TransactionType.BUY) {
                     totalQuantity += transaction.getQuantity();
-                } else if (transaction.getType() == TransactionType.SELL) {
+                } else if (transaction.getType() == Transaction.TransactionType.SELL) {
                     totalQuantity -= transaction.getQuantity();
                 }
             }
